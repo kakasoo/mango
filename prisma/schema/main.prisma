@@ -1,0 +1,16 @@
+datasource db {
+  provider   = "postgresql"
+  url        = env("SHOPPING_POSTGRES_URL")
+  extensions = [pg_trgm]
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["prismaSchemaFolder", "postgresqlExtensions"]
+}
+
+generator markdown {
+  provider = "prisma-markdown"
+  output   = "../docs/ERD.md"
+  title    = "GreenMango"
+}
